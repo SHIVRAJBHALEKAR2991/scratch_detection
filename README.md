@@ -66,21 +66,28 @@ pip install -r requirements.txt
 
 ### 2. Download Model Weights
 
-Place your trained model weights in the `models/` directory:
+Create a directory named **`models/`** in the project root.  
+Download all trained model weights from the following link:
 
+🔗 **Google Drive (Model Weights):**  
+https://drive.google.com/drive/folders/1O4WjIRykX4bhVGcIeNn0Fq3D1z5b1KEB?usp=sharing
+
+After downloading, place the files like this:
 ```
 models/
 ├── classifier_convnext.pth       # ConvNeXt-Tiny classifier (2 classes: GOOD/BAD)
 └── seg_efficientnetb5.pth        # U-Net segmentation model
 ```
 
+Make sure the `--classifier` and `--segmenter` CLI paths point to files inside the **models** folder:
+
 ### 3. Run Inference
 
 ```bash
 python inference.py \
     --image path/to/image.jpg \
-    --classifier weights/classifier_convnext.pth \
-    --segmenter weights/seg_efficientnetb5.pth
+    --classifier models/classifier_convnext.pth \
+    --segmenter models/seg_efficientnetb5.pth
 ```
 
 #### Output
@@ -198,4 +205,66 @@ This repository includes **three Jupyter notebooks** that were used to train bot
 - **mowito-classifier_vit.ipynb** → ViT-Base classifier training (alternative)
 - **mowito-segmentation.ipynb** → U-Net + EfficientNet-B5 segmentation training
 
+## 📓 Training Notebooks (Kaggle)
+
+This repository also provides the full Kaggle notebooks that were used to train the models included in this project.
+
+### 🔷 Classification Notebooks (ConvNeXt & ViT)
+
+Below are the notebooks used to train the **GOOD/BAD image classifier**:
+
+- **ConvNeXt-Tiny Classifier Notebook**  
+  🔗 https://www.kaggle.com/code/shivrajbhalekar2991/mowito-classifier-convnext
+
+- **ViT Base Classifier Notebook**  
+  🔗 https://www.kaggle.com/code/shivrajbhalekar2991/mowito-classifier-vit
+
+
+---
+
+### 🔶 Segmentation Notebook (U-Net + EfficientNet-B5)
+
+The following notebook was used to train the **scratch segmentation model**:
+
+- **U-Net Segmentation Notebook**  
+  🔗 https://www.kaggle.com/code/shivrajbhalekar2991/mowito-segmentation
+
+
+---
+
+These notebooks cover the complete training process including:
+- Data preprocessing  
+- Augmentation strategies  
+- Model training  
+- Validation  
+- Model export for inference  
+
+You can open them directly in Kaggle and run the full training pipeline.
+
+## 📊 Model Performance Comparison
+
+The table below summarizes the results of all models used in the project.
+
+### 🔍 Classification Models
+
+| Model               | Test Accuracy | Precision (Bad) | Recall (Bad) | Notes |
+|---------------------|--------------|-----------------|--------------|-------|
+| **ViT-Base**        | 0.9903       | 0.9711          | 0.9805       | Strong global understanding, transformer-based |
+| **ConvNeXt-Tiny**   | 0.9923       | 0.9714          | **0.9903**   | Best performer, strong local texture learning |
+
+---
+
+### 🎯 Segmentation Model
+
+| Model                          | Precision | Recall | Notes |
+|--------------------------------|-----------|--------|-------|
+| **U-Net (EfficientNet-B5)**    | 0.7864    | 0.7446 | Good scratch localization, struggles on faint scratches |
+
+
+
+## 📸 Sample Output
+
+Below is an example showing the Original Image, Predicted Mask, and Overlay:
+
+![Sample Output](sample_img.png)
 
