@@ -36,7 +36,7 @@ scratch_detection/
 ├── requirements.txt             # Python dependencies
 ├── README.md                    # This file
 │
-├── weights/                     # Model weights (add your trained models here)
+├── models/                     # Model weights (add your trained models here)
 │   ├── classifier_convnext.pth
 │   └── seg_efficientnetb5.pth
 │
