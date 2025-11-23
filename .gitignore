@@ -1,5 +1,16 @@
-.idea
-models/
+# Ignore large model files
 weights/
+models/
 *.pth
 *.pt
+*.ckpt
+*.bin
+*.onnx
+
+
+
+# Ignore IDE files
+.idea/
+.vscode/
+
+
