@@ -67,10 +67,10 @@ pip install -r requirements.txt
 
 ### 2. Download Model Weights
 
-Place your trained model weights in the `weights/` directory:
+Place your trained model weights in the `models/` directory:
 
 ```
-weights/
+models/
 ├── classifier_convnext.pth       # ConvNeXt-Tiny classifier (2 classes: GOOD/BAD)
 └── seg_efficientnetb5.pth        # U-Net segmentation model
 ```
@@ -148,27 +148,10 @@ python inference.py \
     --segmenter weights/seg_efficientnetb5.pth
 ```
 
-### Custom Output Directory
-
-```bash
-python inference.py \
-    --image samples/test.jpg \
-    --classifier weights/classifier_convnext.pth \
-    --segmenter weights/seg_efficientnetb5.pth \
-    --output custom_output/
-```
-
-
 ## 🎨 Output Examples
 
 ### Input Image
 Original image with scratch on text
-
-### Classification Result
-```
-Prediction: BAD
-Confidence: 0.94
-```
 
 ### Segmentation Output
 
