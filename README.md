@@ -254,7 +254,7 @@ The table below summarizes the results of all models used in the project.
 
 ---
 
-### 🎯 Segmentation Model
+### 🎯[mowito-segmentation.ipynb](mowito-segmentation.ipynb) Segmentation Model
 
 | Model                          | Precision | Recall | Notes |
 |--------------------------------|-----------|--------|-------|
@@ -267,4 +267,6 @@ The table below summarizes the results of all models used in the project.
 Below is an example showing the Original Image, Predicted Mask, and Overlay:
 
 ![Sample Output](sample_img.png)
+
+![Sample Output](sample_2.png)
 
